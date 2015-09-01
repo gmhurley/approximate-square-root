@@ -33,7 +33,6 @@ def newtons_method(num, guess=None):
         num = abs(num)
 
     new_guess = .5*(num/guess+guess)
-    # import pdb; pdb.set_trace()
 
     if new_guess == guess:
         if negative is True:
