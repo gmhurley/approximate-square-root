@@ -9,11 +9,14 @@ your original number.)
 
 def ask_for_number():
     """Asks user for a positive number"""
-    number = '0'
+    number = 0
     while True:
-        number = raw_input("Please provide a positive nuumber: ")
-        if number.isdigit() and int(number) > 0:
+        if number > 0:
             return number
+        try:
+            number = int(input("Please provide a positive nuumber: "))
+        except:
+            pass
 
 
 def newtons_method(number):
