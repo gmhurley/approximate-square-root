@@ -19,7 +19,17 @@ def ask_for_number():
             pass
 
 
-def newtons_method(number):
-    pass
+def newtons_method(num, guess=None):
+    """Calculates the square root of a number."""
+    if guess is None:
+        # picked 20 out of thin air. Let me know if I should change.
+        guess = 20
 
-ask_for_number()
+    new_guess = .5*(num/guess+guess)
+
+    if new_guess == guess:
+        print("The square root of {} is {}.".format(num, guess))
+    else:
+        newtons_method(num, new_guess)
+
+newtons_method(num=ask_for_number())
