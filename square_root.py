@@ -7,18 +7,16 @@ your original number.)
 """
 
 rounds = 1
+negative = False
 
 
 def ask_for_number():
     """Asks user for a positive number"""
     number = None
     while True:
-        if number > 0:
-            return number
-        elif number is not None:
-            print("Let's try to be positive this time. {} is just so negative.".format(number))
         try:
-            number = int(input("Please provide a positive nuumber: "))
+            number = int(input("Please provide a nuumber: "))
+            return number
         except:
             print("Silly human, that's not a number, let alone a positive one!")
             pass
@@ -27,13 +25,21 @@ def ask_for_number():
 def newtons_method(num, guess=None):
     """Calculates the square root of a number."""
     if guess is None:
-        # picked 20 out of thin air. Let me know if I should change.
         guess = 20
 
+    if num < 0:
+        global negative
+        negative = True
+        num = abs(num)
+
     new_guess = .5*(num/guess+guess)
+    # import pdb; pdb.set_trace()
 
     if new_guess == guess:
-        print("The square root of {} is {}.".format(num, guess))
+        if negative is True:
+            print("The square root of -{} is {}i.".format(num, guess))
+        else:
+            print("The square root of {} is {}.".format(num, guess))
     else:
         global rounds
         print("Iteration # {}".format(rounds))
