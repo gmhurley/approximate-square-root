@@ -41,7 +41,7 @@ def newtons_method(num, guess=None):
             print("The square root of {} is {}.".format(num, guess))
     else:
         global rounds
-        print("Iteration # {}".format(rounds))
+        print("Tried {} in iteration # {}.".format(new_guess, rounds))
         rounds += 1
         newtons_method(num, new_guess)
 
